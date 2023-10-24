@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Website</title>
+    <style>
+        body {
+            background: url('your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.5s ease-in-out;
+        }
+        .login-container:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        h2 {
+            color: #007BFF;
+            text-align: center;
+        }
+        label {
+            color: #009688;
+        }
+        input[type="text"],
+        input[type="password"] {
+            background-color: #FAD02E;
+            color: #333;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .fade-out {
+            animation: fadeOut 1s;
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+    <script>
+        function handleLogin() {
+            // Add your login logic here (e.g., check username and password)
+
+            // For this example, let's consider a simple case where username is 'myuser' and password is 'mypassword'.
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'myuser' && password === 'mypassword') {
+                // Apply the fade-out animation to the login container
+                document.querySelector('.login-container').classList.add('fade-out');
+
+                // After a delay, redirect to the welcome page
+                setTimeout(function () {
+                    window.location.href = 'welcome.html';
+                }, 1000); // Delay the redirect for 1 second (to allow the fade-out animation)
+            } else {
+                alert('Login failed. Please check your credentials.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="#" method="post" onsubmit="handleLogin(); return false;">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>
